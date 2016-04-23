@@ -193,17 +193,21 @@ namespace Biometria_Projekt
 
         public void LinearFiltr()
         {
-            var red = 0;
-            var green = 0;
-            var blue = 0;
             var maskWindow = new FilterMaskWindow();
             maskWindow.ShowDialog();
             var mask = maskWindow.MaskTable;
+            var maskSum = 0;
+            foreach (var obj in mask)
+            {
+                maskSum += obj;
+            }
             for (int i = 1; i < _width - 1; i++)
             {
                 for (int j = 1; j < _height - 1; j++)
-                {
-                    red = green = blue = 0;
+                {                  
+                    var green = 0;
+                    var blue = 0;
+                    var red = green = blue = 0;
                     for (int x = i - 1; x <= i + 1; x++)
                     {
                         for (int y = j - 1; y <= j + 1; y++)
@@ -220,19 +224,21 @@ namespace Biometria_Projekt
                             red += mask[x2, y2] * _pixels[index2 + 2];
                             green += mask[x2, y2] * _pixels[index2 + 1];
                             blue += mask[x2, y2] * _pixels[index2];
+
                         }
                     }
+                    if (maskSum != 0)
+                    {
+                        blue /= maskSum;
+                        red /= maskSum;
+                        green /= maskSum;
+                    }
+                        blue = Math.Max(0, Math.Min(255, blue));
+                        red = Math.Max(0, Math.Min(255, red));
+                        green = Math.Max(0, Math.Min(255, green));
+                    
 
-                    blue = Math.Max(0, Math.Min(255, blue));
-                    red = Math.Max(0, Math.Min(255, blue));
-                    green = Math.Max(0, Math.Min(255, blue));
-                    var index = ImageOperations.GetIndexOfPixel(i, j, _stride);
-
-                    ChangePixel(i, j, _changedPixels[index + 2], _changedPixels[index + 1], _changedPixels[index]);
-
-                    _changedPixels[index + 2] = (byte)red;
-                    _changedPixels[index + 1] = (byte)green;
-                    _changedPixels[index] = (byte)blue;
+                    ChangePixel(i,j,red,green,blue);
                 }
             }
         }
@@ -497,43 +503,52 @@ namespace Biometria_Projekt
 
                     List<Region> regions = new List<Region>()
                     {
-
-                    new Region(GetAvgBrithtnessKuwahar(x-1,y-1), GetVarianceKuwahar(x - 1, y - 1, GetAvgBrithtnessKuwahar(x - 1, y - 1))),
-                    new Region(GetAvgBrithtnessKuwahar(x + 1, y - 1), GetVarianceKuwahar(x + 1, y - 1, GetAvgBrithtnessKuwahar(x + 1, y - 1))),
-                    new Region(GetAvgBrithtnessKuwahar(x - 1, y + 1), GetVarianceKuwahar(x - 1, y + 1, GetAvgBrithtnessKuwahar(x - 1, y + 1))),
-                    new Region(GetAvgBrithtnessKuwahar(x + 1, y + 1), GetVarianceKuwahar(x + 1, y + 1, GetAvgBrithtnessKuwahar(x + 1, y + 1)))
+                    new Region(x-1, y-1),
+                    new Region(x+1, y-1),
+                    new Region(x-1,y+1),
+                    new Region(x+1,y+1)
 
                 };
-
-                    var minRegion = regions.OrderBy(par => par.Variance).FirstOrDefault();
-                    ChangePixel(x, y, minRegion.AvgBrightness, minRegion.AvgBrightness, minRegion.AvgBrightness);
+                    foreach (Region region in regions)
+                    {
+                        region.AvgBrightnessRed = GetAvgBrithtnessKuwahar(region.StartX, region.StartY, Colors.Red);
+                        region.AvgBrightnessGreen = GetAvgBrithtnessKuwahar(region.StartX, region.StartY, Colors.Green);
+                        region.AvgBrightnessBlue = GetAvgBrithtnessKuwahar(region.StartX, region.StartY, Colors.Blue);
+                        region.VarianceRed = GetVarianceKuwahar(region.StartX, region.StartY, region.AvgBrightnessRed, Colors.Red);
+                        region.VarianceGreen = GetVarianceKuwahar(region.StartX, region.StartY, region.AvgBrightnessGreen, Colors.Green);
+                        region.VarianceBlue = GetVarianceKuwahar(region.StartX, region.StartY, region.AvgBrightnessBlue, Colors.Blue);
+                    }
+                    var minRegionRed = regions.OrderBy(par => par.VarianceRed).FirstOrDefault();
+                    var minRegionGreen = regions.OrderBy(par => par.VarianceGreen).FirstOrDefault();
+                    var minRegionBlue = regions.OrderBy(par => par.VarianceBlue).FirstOrDefault();
+                    ChangePixel(x, y, minRegionRed.AvgBrightnessRed, minRegionGreen.AvgBrightnessGreen, minRegionBlue.AvgBrightnessBlue);
                 }
             }
             DrawChangePicture();
         }
 
-        public int GetAvgBrithtnessKuwahar(int startX, int startY)
+        public int GetAvgBrithtnessKuwahar(int startX, int startY, Colors color)
         {
             int avgBrightness = 0;
             for (int i = startX - 1; i <= startX + 1; i++)
             {
                 for (int j = startY - 1; j <= startY + 1; j++)
                 {
-                    int index = ImageOperations.GetIndexOfPixel(i, j, _stride);
+                    int index = ImageOperations.GetIndexOfPixel(i, j, _stride) + (int)color;
                     avgBrightness += _pixels[index];
                 }
             }
             return (int)avgBrightness / 9;
         }
 
-        public double GetVarianceKuwahar(int startX, int startY, int avgBrightness)
+        public double GetVarianceKuwahar(int startX, int startY, int avgBrightness, Colors color)
         {
             double variance = 0;
             for (int i = startX - 1; i <= startX + 1; i++)
             {
                 for (int j = startY - 1; j <= startY + 1; j++)
                 {
-                    int index = ImageOperations.GetIndexOfPixel(i, j, _stride);
+                    int index = ImageOperations.GetIndexOfPixel(i, j, _stride) + (int)color;
                     variance += (avgBrightness - _pixels[index]) * (avgBrightness - _pixels[index]);
                 }
             }
@@ -547,15 +562,15 @@ namespace Biometria_Projekt
 
         public void MedianFilter(int mask)
         {
-            for (int x = mask/2; x < _width - mask/2; x++)
+            for (int x = mask / 2; x < _width - mask / 2; x++)
             {
                 for (int y = mask / 2; y < _height - mask / 2; y++)
                 {
-                    var middleR = GetMiddlePixel(x, y, mask,Colors.Red);
-                    var middleG = GetMiddlePixel(x, y, mask,Colors.Green);
-                    var middleB = GetMiddlePixel(x, y, mask,Colors.Blue);
-                    ChangePixel(x,y,middleR,middleG,middleB);
-                };              
+                    var middleR = GetMiddlePixel(x, y, mask, Colors.Red);
+                    var middleG = GetMiddlePixel(x, y, mask, Colors.Green);
+                    var middleB = GetMiddlePixel(x, y, mask, Colors.Blue);
+                    ChangePixel(x, y, middleR, middleG, middleB);
+                };
             }
             DrawChangePicture();
         }
@@ -568,14 +583,14 @@ namespace Biometria_Projekt
                 for (int j = startY - mask / 2; j <= startY + mask / 2; j++)
                 {
                     int index = ImageOperations.GetIndexOfPixel(i, j, _stride);
-                    maskPixels.Add(_pixels[index+(int)color]);                 
+                    maskPixels.Add(_pixels[index + (int)color]);
                 }
             }
-            return maskPixels.OrderBy(x => x).Skip(maskPixels.Count/2).First();
+            return maskPixels.OrderBy(x => x).Skip(maskPixels.Count / 2).First();
         }
 
         private void MedianaFiltrClick(object sender, RoutedEventArgs e)
-        {           
+        {
             var maskWindow = new MaskWindow();
             maskWindow.ShowDialog();
             int mask = maskWindow.MaskSize;

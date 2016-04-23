@@ -8,13 +8,19 @@ namespace Biometria_Projekt.Classes
 {
     class Region   
     {
-        public int AvgBrightness { get; set; }
-        public double Variance { get; set; }
+        public int StartX { get; set; }
+        public int StartY { get; set; }
+        public int AvgBrightnessRed { get; set; }
+        public int AvgBrightnessGreen { get; set; }
+        public int AvgBrightnessBlue { get; set; }
+        public double VarianceRed { get; set; }
+        public double VarianceGreen { get; set; }
+        public double VarianceBlue { get; set; }
 
-        public Region(int avgBrightness,double variance)
+        public Region(int startX,int startY)
         {
-            AvgBrightness = avgBrightness;
-            Variance = variance;
+            StartX = startX;
+            StartY = startY;
         }
     }
 }

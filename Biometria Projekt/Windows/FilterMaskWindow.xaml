@@ -18,15 +18,15 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox Name="TextBox00" Grid.Row="0" Grid.Column="0" Margin="15"></TextBox>
-        <TextBox Name="TextBox01" Grid.Row="0" Grid.Column="1" Margin="15"></TextBox>
-        <TextBox Name="TextBox02" Grid.Row="0" Grid.Column="2" Margin="15"></TextBox>
-        <TextBox Name="TextBox10" Grid.Row="1" Grid.Column="0" Margin="15"></TextBox>
-        <TextBox Name="TextBox11" Grid.Row="1" Grid.Column="1" Margin="15"></TextBox>
-        <TextBox Name="TextBox12" Grid.Row="1" Grid.Column="2" Margin="15"></TextBox>
-        <TextBox Name="TextBox20" Grid.Row="2" Grid.Column="0" Margin="15"></TextBox>
-        <TextBox Name="TextBox21" Grid.Row="2" Grid.Column="1" Margin="15"></TextBox>
-        <TextBox Name="TextBox22" Grid.Row="2" Grid.Column="2" Margin="15"></TextBox>
+        <TextBox Name="TextBox00" Grid.Row="0" Grid.Column="0" Text="-1" Margin="15"></TextBox>
+        <TextBox Name="TextBox01" Grid.Row="0" Grid.Column="1" Text="0"  Margin="15"></TextBox>
+        <TextBox Name="TextBox02" Grid.Row="0" Grid.Column="2" Text="1"  Margin="15"></TextBox>
+        <TextBox Name="TextBox10" Grid.Row="1" Grid.Column="0" Text="-2" Margin="15"></TextBox>
+        <TextBox Name="TextBox11" Grid.Row="1" Grid.Column="1" Text="0"  Margin="15"></TextBox>
+        <TextBox Name="TextBox12" Grid.Row="1" Grid.Column="2" Text="2"  Margin="15"></TextBox>
+        <TextBox Name="TextBox20" Grid.Row="2" Grid.Column="0" Text="-1"  Margin="15"></TextBox>
+        <TextBox Name="TextBox21" Grid.Row="2" Grid.Column="1" Text="0"  Margin="15"></TextBox>
+        <TextBox Name="TextBox22" Grid.Row="2" Grid.Column="2" Text="1"  Margin="15"></TextBox>
         <Button Grid.Row="3" Grid.Column="0" Click="ButtonBase_OnClick">OK</Button>
     </Grid>
 </Window>

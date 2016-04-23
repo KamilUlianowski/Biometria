@@ -14,44 +14,27 @@ namespace Biometria_Projekt.Tests
     [TestClass()]
     public class MainWindowTests
     {
-        [TestMethod()]
-        public void addTest()
-        {
-            var exptected = 9;
-            var actual = MainWindow.add(5, 4); 
-            Assert.AreEqual(exptected,actual);
-        }
+   
 
-        [TestMethod]
-        public void AverageBrithtnessTest()
-        {
-            var exampleTable = new int[5, 5]
-            {
-                {100, 200, 50,40,30},
-                {40, 20, 50, 90, 120},
-                {30, 50, 90, 50,120},
-                {20, 60, 120,230,110},
-                {60, 70, 150,70,110}
-            };
-        }
 
         [TestMethod()]
         public void maskTest()
         {
             var exampleTable = new int[3, 3]
             {
-                {0, 0, 0},
-                {0, 1, 1},
-                {0, 1, 2}
+                {1, 0, 2},
+                {1, 0, 5},
+                {2, 0, 1}
             };
+            // -1 + 2 -2 + 2 - 2 + 1
             var mask = new int[3, 3]
             {
-                {4, 0, 0},
-                {0, 0, 0},
-                {0, 0, -4}
+                {-1, 0, 1},
+                {-2, 0, 2},
+                {-1, 0, 1}
             };
             var sum = 0;
-            var expected = -8;
+            var expected = 8;
             for (int x = 0; x <= 2; x++)
             {
                 for (int y = 0; y <= 2; y++)
