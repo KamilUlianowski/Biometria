@@ -1,0 +1,12 @@
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\Biometria ProjektTests.dll
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\Biometria ProjektTests.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\Biometria Projekt.exe
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\WPFToolkit.dll
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\Biometria Projekt.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\bin\Debug\WPFToolkit.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.csprojResolveAssemblyReference.cache
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.dll
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.pdb

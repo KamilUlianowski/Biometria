@@ -1,0 +1,32 @@
+﻿<Window x:Class="Biometria_Projekt.FilterMaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biometria_Projekt"
+        mc:Ignorable="d"
+        Title="FilterMaskWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="TextBox00" Grid.Row="0" Grid.Column="0" Margin="15"></TextBox>
+        <TextBox Name="TextBox01" Grid.Row="0" Grid.Column="1" Margin="15"></TextBox>
+        <TextBox Name="TextBox02" Grid.Row="0" Grid.Column="2" Margin="15"></TextBox>
+        <TextBox Name="TextBox10" Grid.Row="1" Grid.Column="0" Margin="15"></TextBox>
+        <TextBox Name="TextBox11" Grid.Row="1" Grid.Column="1" Margin="15"></TextBox>
+        <TextBox Name="TextBox12" Grid.Row="1" Grid.Column="2" Margin="15"></TextBox>
+        <TextBox Name="TextBox20" Grid.Row="2" Grid.Column="0" Margin="15"></TextBox>
+        <TextBox Name="TextBox21" Grid.Row="2" Grid.Column="1" Margin="15"></TextBox>
+        <TextBox Name="TextBox22" Grid.Row="2" Grid.Column="2" Margin="15"></TextBox>
+        <Button Grid.Row="3" Grid.Column="0" Click="ButtonBase_OnClick">OK</Button>
+    </Grid>
+</Window>

@@ -1,0 +1,114 @@
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe.config
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.pdb
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csprojResolveAssemblyReference.cache
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\App.g.cs
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.cache
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.lref
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.baml
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.g.resources
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria_Projekt.Properties.Resources.resources
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csproj.GenerateResource.Cache
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.exe
+C:\Users\kamel\Desktop\Studia\Podstawy Biometrii\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.pdb
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe.config
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.exe
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.pdb
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.pdb
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csprojResolveAssemblyReference.cache
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.g.cs
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\App.g.cs
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.cache
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.lref
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.baml
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.g.resources
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria_Projekt.Properties.Resources.resources
+E:\Pobierane\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csproj.GenerateResource.Cache
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe.config
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.exe
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.pdb
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.pdb
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csprojResolveAssemblyReference.cache
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\App.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.cache
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.lref
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.baml
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.g.resources
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria_Projekt.Properties.Resources.resources
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csproj.GenerateResource.Cache
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\HistogramWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\HistogramWindow.baml
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.baml
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.baml
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\WPFToolkit.dll
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\bin\Debug\WPFToolkit.pdb
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.baml
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.g.cs
+C:\Users\Ulian\Desktop\Biometria-master\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe.config
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.exe
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.exe
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\bin\Debug\Biometria Projekt.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\bin\Debug\WPFToolkit.pdb
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csprojResolveAssemblyReference.cache
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\HistogramWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\App.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.cache
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.lref
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\MainWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\HistogramWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.baml
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.g.resources
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria_Projekt.Properties.Resources.resources
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Biometria Projekt.csproj.GenerateResource.Cache
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\FilterMaskWindow.g.cs
+C:\Users\kamel\Desktop\Studia\Biometria\Biometria Projekt\Biometria Projekt\obj\Debug\Windows\FilterMaskWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\bin\Debug\Biometria Projekt.exe.config
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt.exe
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\bin\Debug\Biometria Projekt.exe
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\bin\Debug\Biometria Projekt.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\bin\Debug\WPFToolkit.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt.csprojResolveAssemblyReference.cache
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\FilterMaskWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\MainWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\HistogramWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\App.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.cache
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt_MarkupCompile.lref
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\FilterMaskWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\MainWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ChartHistogramWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\HistogramWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\PixelPropertiesWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ViewPixelWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\ZoomImageWindow.baml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt.g.resources
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria_Projekt.Properties.Resources.resources
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Biometria Projekt.csproj.GenerateResource.Cache
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\MaskWindow.g.cs
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\obj\Debug\Windows\MaskWindow.baml

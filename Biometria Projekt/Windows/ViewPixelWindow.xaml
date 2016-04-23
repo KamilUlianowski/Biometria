@@ -1,0 +1,51 @@
+﻿<Window x:Class="Biometria_Projekt.Windows.ViewPixelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biometria_Projekt.Windows"
+        mc:Ignorable="d"
+        Title="ViewPixelWindow" Height="250" Width="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="2" Content="ORYGINALNY OBRAZ"></Label>
+        <Label Grid.Row="0" Grid.Column="3" Content="ZMIENIONY OBRAZ"></Label>
+
+        <Label x:Name="label" Content="X" Grid.Row="1" Margin="5"/>
+        <Label x:Name="label_Copy" Content="Y" Grid.Row="2" Margin="5"/>
+
+        <TextBox x:Name="CoordinateX" Grid.Row="1" Grid.Column="1" Margin="5"></TextBox>
+        <TextBox x:Name="CoordinateY" Grid.Row="2" Grid.Column="1" Margin="5"></TextBox>
+
+        <Label x:Name="LabelX" FontSize="15" Grid.Row="1"  Grid.Column="2" />
+        <Label x:Name="LabelY" FontSize="15" Grid.Row="2"  Grid.Column="2" />
+        <Label x:Name="LabelR" FontSize="15" Grid.Row="3"  Grid.Column="2" />
+        <Label x:Name="LabelG" FontSize="15" Grid.Row="4"  Grid.Column="2" />
+        <Label x:Name="LabelB"  FontSize="15" Grid.Row="5" Grid.Column="2" />
+
+        <Label x:Name="LabelChangeX" FontSize="15" Grid.Row="1" Grid.Column="3" />
+        <Label x:Name="LabelChangeY" FontSize="15" Grid.Row="2" Grid.Column="3" />
+        <Label x:Name="LabelChangeR"  FontSize="15" Grid.Row="3" Grid.Column="3" />
+        <Label x:Name="LabelChangeG"  FontSize="15" Grid.Row="4" Grid.Column="3" />
+        <Label x:Name="LabelChangeB"  FontSize="15" Grid.Row="5" Grid.Column="3" />
+
+        <Button Name="ButtonConfirm" Grid.Row="6" Grid.ColumnSpan="5" Content="Zatwierdz" Click="ButtonConfirm_Click" ></Button>
+    </Grid>
+</Window>
