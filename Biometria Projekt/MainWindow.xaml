@@ -62,6 +62,12 @@
                 </MenuItem>
             </Menu>
 
+            <Menu >
+                <MenuItem  Header="Zajęcia5" FontSize="18">
+                    <MenuItem Header="Szkieletowanie" Click="Thinning_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+
         </StackPanel>
         <Grid  Name="GridChangeBrightness" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
             <Grid.RowDefinitions>

@@ -6,11 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -18,10 +16,16 @@ using System.Windows.Threading;
 using Microsoft.Win32;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using Biometria_Projekt.Windows;
 using System.Drawing.Imaging;
+using System.Dynamic;
+using System.Xml.XPath;
 using Biometria_Projekt.Classes;
+using Color = System.Windows.Media.Color;
+using Image = System.Windows.Controls.Image;
+using Region = Biometria_Projekt.Classes.Region;
 
 namespace Biometria_Projekt
 {
@@ -191,58 +195,7 @@ namespace Biometria_Projekt
             DrawChangePicture();
         }
 
-        public void LinearFiltr()
-        {
-            var maskWindow = new FilterMaskWindow();
-            maskWindow.ShowDialog();
-            var mask = maskWindow.MaskTable;
-            var maskSum = 0;
-            foreach (var obj in mask)
-            {
-                maskSum += obj;
-            }
-            for (int i = 1; i < _width - 1; i++)
-            {
-                for (int j = 1; j < _height - 1; j++)
-                {                  
-                    var green = 0;
-                    var blue = 0;
-                    var red = green = blue = 0;
-                    for (int x = i - 1; x <= i + 1; x++)
-                    {
-                        for (int y = j - 1; y <= j + 1; y++)
-                        {
-                            var x2 = 0;
-                            var y2 = 0;
-                            if (x == i) x2 = 1;
-                            if (x < i) x2 = 0;
-                            if (x > i) x2 = 2;
-                            if (y == j) y2 = 1;
-                            if (y < j) y2 = 0;
-                            if (y > j) y2 = 2;
-                            var index2 = ImageOperations.GetIndexOfPixel(x, y, _stride);
-                            red += mask[x2, y2] * _pixels[index2 + 2];
-                            green += mask[x2, y2] * _pixels[index2 + 1];
-                            blue += mask[x2, y2] * _pixels[index2];
-
-                        }
-                    }
-                    if (maskSum != 0)
-                    {
-                        blue /= maskSum;
-                        red /= maskSum;
-                        green /= maskSum;
-                    }
-                        blue = Math.Max(0, Math.Min(255, blue));
-                        red = Math.Max(0, Math.Min(255, red));
-                        green = Math.Max(0, Math.Min(255, green));
-                    
-
-                    ChangePixel(i,j,red,green,blue);
-                }
-            }
-        }
-
+        
 
         private void Brightness_Click(object sender, RoutedEventArgs e)
         {
@@ -494,6 +447,59 @@ namespace Biometria_Projekt
             DrawChangePicture();
         }
 
+        public void LinearFiltr()
+        {
+            var maskWindow = new FilterMaskWindow();
+            maskWindow.ShowDialog();
+            var mask = maskWindow.MaskTable;
+            var maskSum = 0;
+            foreach (var obj in mask)
+            {
+                maskSum += obj;
+            }
+            for (int i = 1; i < _width - 1; i++)
+            {
+                for (int j = 1; j < _height - 1; j++)
+                {
+                    var green = 0;
+                    var blue = 0;
+                    var red = green = blue = 0;
+                    for (int x = i - 1; x <= i + 1; x++)
+                    {
+                        for (int y = j - 1; y <= j + 1; y++)
+                        {
+                            var x2 = 0;
+                            var y2 = 0;
+                            if (x == i) x2 = 1;
+                            if (x < i) x2 = 0;
+                            if (x > i) x2 = 2;
+                            if (y == j) y2 = 1;
+                            if (y < j) y2 = 0;
+                            if (y > j) y2 = 2;
+                            var index2 = ImageOperations.GetIndexOfPixel(x, y, _stride);
+                            red += mask[x2, y2] * _pixels[index2 + 2];
+                            green += mask[x2, y2] * _pixels[index2 + 1];
+                            blue += mask[x2, y2] * _pixels[index2];
+
+                        }
+                    }
+                    if (maskSum != 0)
+                    {
+                        blue /= maskSum;
+                        red /= maskSum;
+                        green /= maskSum;
+                    }
+                    blue = Math.Max(0, Math.Min(255, blue));
+                    red = Math.Max(0, Math.Min(255, red));
+                    green = Math.Max(0, Math.Min(255, green));
+
+
+                    ChangePixel(i, j, red, green, blue);
+                }
+            }
+        }
+
+
         public void KuwaharFilter()
         {
             for (int x = 2; x < _width - 2; x++)
@@ -595,6 +601,160 @@ namespace Biometria_Projekt
             maskWindow.ShowDialog();
             int mask = maskWindow.MaskSize;
             MedianFilter(mask);
+        }
+
+        #region FingerPrints
+
+        public bool[][] Image2Bool()
+        {
+
+            bool[][] s = new bool[_height][];
+            for (int y = 0; y < _height; y++)
+            {
+                s[y] = new bool[_width];
+                for (int x = 0; x < _width; x++)
+                {
+                    var index = ImageOperations.GetIndexOfPixel(x, y, _stride);
+                    s[y][x] = _pixels[index] == 0;
+                }
+            }
+            return s;
+
+        }
+
+        public void Bool2Image(bool[][] s)
+        {
+            for (int y = 0; y < _height; y++)
+                for (int x = 0; x < _width; x++)
+                {
+                    var index = ImageOperations.GetIndexOfPixel(x, y, _stride);
+                    if (s[y][x])
+                    {
+                        ChangePixel(x,y,0,0,0);
+                    }
+                }
+            
+        DrawChangePicture();
+        }
+
+        public static bool[][] ZhangSuenThinning(bool[][] s)
+        {
+            bool[][] temp = ArrayClone(s);  // make a deep copy to start.. 
+            int count = 0;
+            do  // the missing iteration
+            {
+                count = step(1, temp, s);
+                temp = ArrayClone(s);      // ..and on each..
+                count += step(2, temp, s);
+                temp = ArrayClone(s);      // ..call!
+            }
+            while (count > 0);
+
+            return s;
+        }
+
+        static int step(int stepNo, bool[][] temp, bool[][] s)
+        {
+            int count = 0;
+
+            for (int a = 1; a < temp.Length - 1; a++)
+            {
+                for (int b = 1; b < temp[0].Length - 1; b++)
+                {
+                    if (SuenThinningAlg(a, b, temp, stepNo == 2))
+                    {
+                        // still changes happening?
+                        if (s[a][b]) count++;
+                        s[a][b] = false;
+                    }
+                }
+            }
+            return count;
+        }
+
+        static bool SuenThinningAlg(int x, int y, bool[][] s, bool even)
+        {
+            bool p2 = s[x][y - 1];
+            bool p3 = s[x + 1][y - 1];
+            bool p4 = s[x + 1][y];
+            bool p5 = s[x + 1][y + 1];
+            bool p6 = s[x][y + 1];
+            bool p7 = s[x - 1][y + 1];
+            bool p8 = s[x - 1][y];
+            bool p9 = s[x - 1][y - 1];
+
+
+            int bp1 = NumberOfNonZeroNeighbors(x, y, s);
+            if (bp1 >= 2 && bp1 <= 6) //2nd condition
+            {
+                if (NumberOfZeroToOneTransitionFromP9(x, y, s) == 1)
+                {
+                    if (even)
+                    {
+                        if (!((p2 && p4) && p8))
+                        {
+                            if (!((p2 && p6) && p8))
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (!((p2 && p4) && p6))
+                        {
+                            if (!((p4 && p6) && p8))
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        static int NumberOfZeroToOneTransitionFromP9(int x, int y, bool[][] s)
+        {
+            bool p2 = s[x][y - 1];
+            bool p3 = s[x + 1][y - 1];
+            bool p4 = s[x + 1][y];
+            bool p5 = s[x + 1][y + 1];
+            bool p6 = s[x][y + 1];
+            bool p7 = s[x - 1][y + 1];
+            bool p8 = s[x - 1][y];
+            bool p9 = s[x - 1][y - 1];
+
+            int A = Convert.ToInt32((!p2 && p3)) + Convert.ToInt32((!p3 && p4)) +
+                    Convert.ToInt32((!p4 && p5)) + Convert.ToInt32((!p5 && p6)) +
+                    Convert.ToInt32((!p6 && p7)) + Convert.ToInt32((!p7 && p8)) +
+                    Convert.ToInt32((!p8 && p9)) + Convert.ToInt32((!p9 && p2));
+            return A;
+        }
+        static int NumberOfNonZeroNeighbors(int x, int y, bool[][] s)
+        {
+            int count = 0;
+            if (s[x - 1][y]) count++;
+            if (s[x - 1][y + 1]) count++;
+            if (s[x - 1][y - 1]) count++;
+            if (s[x][y + 1]) count++;
+            if (s[x][y - 1]) count++;
+            if (s[x + 1][y]) count++;
+            if (s[x + 1][y + 1]) count++;
+            if (s[x + 1][y - 1]) count++;
+            return count;
+        }
+
+        public static T[][] ArrayClone<T>(T[][] A)
+        { return A.Select(a => a.ToArray()).ToArray(); }
+
+        #endregion
+
+        private void Thinning_Click(object sender, RoutedEventArgs e)
+        {
+            bool[][] t = Image2Bool();
+            var newTable = ZhangSuenThinning(t);
+            Bool2Image(newTable);
         }
     }
 }
