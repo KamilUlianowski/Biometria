@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using Biometria_Projekt.Classes;
 
 namespace Biometria_Projekt
 {
     class ImageOperations
     {
+
+        public ImageProperties imgProperties { get; set; }
+
+        public ImageOperations()
+        {
+            imgProperties = new ImageProperties();
+        }
+
         public static double SearchMaxValue(byte[] array)
         {
             double max = 0;
@@ -54,21 +66,27 @@ namespace Biometria_Projekt
             return min;
         }
 
-        public static int GetIndexOfPixel(int X, int Y, int _stride )
+        public static int GetIndexOfPixel(int X, int Y, int _stride)
         {
             int x = 4 * X;
             int y = _stride * Y;
             return x + y;
         }
 
+        public static int GetPixelValue(int x, int y, ImageProperties imgProp)
+        {
+            var index = GetIndexOfPixel(x, y, imgProp.Stride);
+            return imgProp.ChangedPixels[index+1];
+        }
+
 
         public static int[] GetLUTForChangeTheBrightness(double x)
         {
             int[] LUT = new int[256];
-               
+
             for (double i = 0; i < 256; i++)
             {
-                LUT[(int)i] =(int) (255 * Math.Pow(i/255,x));
+                LUT[(int)i] = (int)(255 * Math.Pow(i / 255, x));
             }
             return LUT;
         }
@@ -89,8 +107,8 @@ namespace Biometria_Projekt
             int[] LUT = new int[256];
 
             for (int i = 0; i <= 255; i++)
-            { 
-                LUT[i] = (int) ((255 / (max - min)) * (i - min));
+            {
+                LUT[i] = (int)((255 / (max - min)) * (i - min));
                 if (LUT[i] < 0) LUT[i] = 0;
                 if (LUT[i] > 255) LUT[i] = 255;
             }
@@ -119,6 +137,50 @@ namespace Biometria_Projekt
             }
 
             return cumulativeHistogram;
+        }
+
+        public void ChangePixel(int x, int y, int r, int g, int b)
+        {
+            var index = ImageOperations.GetIndexOfPixel(x, y, imgProperties.Stride);
+            imgProperties.ChangedPixels[index + 2] = (byte)r;
+            imgProperties.ChangedPixels[index + 1] = (byte)g;
+            imgProperties.ChangedPixels[index] = (byte)b;
+        }
+
+        public bool[][] Image2Bool()
+        {
+            var s = new bool[imgProperties.Height][];
+            for (var y = 0; y < imgProperties.Height; y++)
+            {
+                s[y] = new bool[imgProperties.Width];
+                for (var x = 0; x < imgProperties.Width; x++)
+                {
+                    var index = ImageOperations.GetIndexOfPixel(x, y, imgProperties.Stride);
+                    s[y][x] = imgProperties.Pixels[index] < 100;
+                }
+            }
+            return s;
+        }
+
+        public byte[] Bool2Image(bool[][] s)
+        {
+            for (var y = 0; y < imgProperties.Height; y++)
+            {
+                for (var x = 0; x < imgProperties.Width; x++)
+                {
+                    if (s[y][x])
+                    {
+                        ChangePixel(x, y, 0, 0, 0);
+                    }
+                    else
+                    {
+                        ChangePixel(x, y, 255, 255, 255);
+                    }
+                }
+            }
+
+            return imgProperties.ChangedPixels;
+
         }
 
     }

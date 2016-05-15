@@ -8,6 +8,7 @@ namespace Biometria_Projekt.Classes
 {
     public class Filters
     {
+        public ImageProperties ImageProperties { get; set; }
         public static int[,] GetLowPassMask()
         {
             var mask = new int[3, 3]
@@ -29,5 +30,6 @@ namespace Biometria_Projekt.Classes
             };
             return mask;
         }
+
     }
 }

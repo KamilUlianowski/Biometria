@@ -65,6 +65,8 @@
             <Menu >
                 <MenuItem  Header="Zajęcia5" FontSize="18">
                     <MenuItem Header="Szkieletowanie" Click="Thinning_Click"></MenuItem>
+                    <MenuItem Header="Rozgałęzienia" Click="Branching_Click"></MenuItem>
+                    <MenuItem Header="Zakończenia" Click="RidgeEnd_Click"></MenuItem>
                 </MenuItem>
             </Menu>
 
