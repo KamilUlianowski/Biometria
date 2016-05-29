@@ -15,22 +15,20 @@ namespace Biometria_Projekt.Classes
 
         public static bool[][] ZhangSuenThinning(bool[][] s)
         {
-            var temp = ArrayClone(s); // make a deep copy to start.. 
+            var temp = ArrayClone(s);
             var count = 0;
-            do // the missing iteration
+            do
             {
-                count = step(1, temp, s);
-                temp = ArrayClone(s); // ..and on each..
-                count += step(2, temp, s);
-                temp = ArrayClone(s); // ..call!
+                count = Step(1, temp, s);
+                temp = ArrayClone(s);
+                count += Step(2, temp, s);
+                temp = ArrayClone(s);
             } while (count > 0);
-
-            var count2 = 0;
 
             return s;
         }
 
-        private static int step(int stepNo, bool[][] temp, bool[][] s)
+        private static int Step(int stepNo, bool[][] temp, bool[][] s)
         {
             var count = 0;
 
@@ -40,7 +38,6 @@ namespace Biometria_Projekt.Classes
                 {
                     if (SuenThinningAlg(a, b, temp, stepNo == 2))
                     {
-                        // still changes happening?
                         if (s[a][b]) count++;
                         s[a][b] = false;
                     }
@@ -62,7 +59,7 @@ namespace Biometria_Projekt.Classes
 
 
             var bp1 = NumberOfNonZeroNeighbors(x, y, s);
-            if (bp1 >= 2 && bp1 <= 6) //2nd condition
+            if (bp1 >= 2 && bp1 <= 6)
             {
                 if (NumberOfZeroToOneTransitionFromP9(x, y, s) == 1)
                 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -10,6 +11,8 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using Biometria_Projekt.Classes;
 using Biometria_Projekt.Windows;
+using CsvHelper;
+using Ionic.Zip;
 using Microsoft.Win32;
 using Point = System.Windows.Point;
 using Region = Biometria_Projekt.Classes.Region;
@@ -34,6 +37,8 @@ namespace Biometria_Projekt
         private int _arraySize;
         private HistogramWindow histogramWindow;
         private PixelPropertiesWindow pixelPropertiesWindow;
+        private List<Vector1> listOfVectors1;
+        private List<Vector2> listOfVectors2;
 
         public MainWindow()
         {
@@ -108,9 +113,9 @@ namespace Biometria_Projekt
             try
             {
                 var index = ImageOperations.GetIndexOfPixel(x, y, _stride);
-                _changedPixels[index + 2] = (byte) r;
-                _changedPixels[index + 1] = (byte) g;
-                _changedPixels[index] = (byte) b;
+                _changedPixels[index + 2] = (byte)r;
+                _changedPixels[index + 1] = (byte)g;
+                _changedPixels[index] = (byte)b;
             }
             catch
             {
@@ -246,30 +251,16 @@ namespace Biometria_Projekt
 
         private void BinaryzationWithNiblack_Click(object sender, RoutedEventArgs e)
         {
+
             MakeGrayImage();
             ChangePictureNiblack();
             DrawChangePicture();
         }
 
-        private string GetPath()
-        {
-            var browser = new OpenFileDialog();
-            if (browser.ShowDialog() != true) return null;
-            return browser.FileName;
-        }
-
-        private string GetSavePath()
-        {
-            var browser = new SaveFileDialog();
-            browser.Filter = "Gif Image (.gif)|*.gif|JPEG Image (.jpeg)|*.jpeg|Tiff Image (.tiff)|*.tiff";
-            if (browser.ShowDialog() != true) return null;
-            return browser.FileName;
-        }
-
         private void SaveFile(object sender, RoutedEventArgs e)
         {
             BitmapEncoder encoder;
-            var source = GetSavePath();
+            var source = DebugFolder.GetSavePath();
             if (source.EndsWith("gif"))
             {
                 encoder = new GifBitmapEncoder();
@@ -325,7 +316,7 @@ namespace Biometria_Projekt
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
-            Source = GetPath();
+            Source = DebugFolder.GetPath();
             if (Source == null) return;
 
             _source = Validation.Check8bppFormat(_source);
@@ -357,8 +348,8 @@ namespace Biometria_Projekt
                 for (var j = 0; j < _height; j++)
                 {
                     var index = ImageOperations.GetIndexOfPixel(i, j, _stride);
-                    var treshold = CalculateTreshold(i, j, int.Parse(TextBoxNiblackSizeOfWindowA.Text),
-                        int.Parse(TextBoxNiblackSizeOfWindowB.Text));
+                    var treshold = CalculateTreshold(i, j, 15, 15);
+
                     if (_changedPixels[index] < treshold)
                     {
                         _changedPixels[index] = 0;
@@ -379,7 +370,7 @@ namespace Biometria_Projekt
         {
             var avg = GetAverageColor(x, y, sideA, sideB);
             var odch = StandardDeviation(x, y, sideA, sideB, avg);
-            var prog = avg + double.Parse(TextBoxNilbackTresholdParameter.Text) * odch;
+            var prog = avg + -0.7 * odch;
             return (int)prog;
         }
 
@@ -622,21 +613,21 @@ namespace Biometria_Projekt
             foreach (var point in points)
             {
 
-                for (int x = (int)point.X - sizeOfSquare/2; x <= (int)point.X + sizeOfSquare/2; x++)
+                for (int x = (int)point.X - sizeOfSquare / 2; x <= (int)point.X + sizeOfSquare / 2; x++)
                 {
-                       ChangePixel(x,(int)point.Y- sizeOfSquare/2, 0,0,255);
+                    ChangePixel(x, (int)point.Y - sizeOfSquare / 2, 0, 0, 255);
                 }
-                for (int x = ((int)point.X - sizeOfSquare/2) + 1; x <= ((int)point.X + sizeOfSquare/2)-1; x++)
+                for (int x = ((int)point.X - sizeOfSquare / 2) + 1; x <= ((int)point.X + sizeOfSquare / 2) - 1; x++)
                 {
-                    ChangePixel(x, (int)point.Y+ sizeOfSquare/2, 0, 0, 255);
+                    ChangePixel(x, (int)point.Y + sizeOfSquare / 2, 0, 0, 255);
                 }
-                for (int y = ((int) point.Y - sizeOfSquare/2)+1; y <= (int) point.Y + sizeOfSquare/2; y++)
+                for (int y = ((int)point.Y - sizeOfSquare / 2) + 1; y <= (int)point.Y + sizeOfSquare / 2; y++)
                 {
-                    ChangePixel((int)point.X- sizeOfSquare / 2, y, 0, 0, 255);
+                    ChangePixel((int)point.X - sizeOfSquare / 2, y, 0, 0, 255);
                 }
-                for (int y = ((int)point.Y - sizeOfSquare/2)+1; y <= (int)point.Y + sizeOfSquare/2; y++)
+                for (int y = ((int)point.Y - sizeOfSquare / 2) + 1; y <= (int)point.Y + sizeOfSquare / 2; y++)
                 {
-                    ChangePixel((int)point.X+ sizeOfSquare/2, y, 0, 0, 255);
+                    ChangePixel((int)point.X + sizeOfSquare / 2, y, 0, 0, 255);
                 }
             }
             DrawChangePicture();
@@ -647,8 +638,144 @@ namespace Biometria_Projekt
             var LUT = Binaryzation.GetLUTForBinaryzation(100);
             ChangePictureWithLUT(LUT);
             _imagaProperties.ChangedPixels = _changedPixels;
-            var points = Minutiae.FindRidgeEndings(_imagaProperties);
-            MinutiaeDecoration(points,15);
+            var points = Minutiae.FindRidgeEndings(_imagaProperties, false);
+            MinutiaeDecoration(points, 15);
+        }
+
+        private void OpenZip(object sender, RoutedEventArgs e)
+        {
+            using (ZipFile zip = ZipFile.Read(DebugFolder.GetPath()))
+            {
+                zip.ExtractAll(DebugFolder.GetSavePathToZip());
+            }
+        }
+
+        private void Filter_Click(object sender, RoutedEventArgs e)
+        {
+            var LUT = Binaryzation.GetLUTForBinaryzation(100);
+            ChangePictureWithLUT(LUT);
+            _imagaProperties.ChangedPixels = _changedPixels;
+            var points = Minutiae.FindRidgeEndings(_imagaProperties, true);
+            MinutiaeDecoration(points, 15);
+        }
+
+        private List<Table2> GetDataFromDatabase()
+        {
+            DataClasses1DataContext data1 = new DataClasses1DataContext();
+            var q =
+       from a in data1.GetTable<Table2>()
+       select a;
+            return q.ToList();
+        }
+
+        public List<Vector1> GetListOfVector1()
+        {
+            var vectors1 = new List<Vector1>();
+            var list = GetDataFromDatabase();
+            foreach (var row in list)
+            {
+                var clicks = Keystroke.ChangeStringToClicksStatistics(row.input1);
+                var vector1 = Keystroke.CreateVector1(clicks, Int32.Parse(row.user_id.ToString()));
+                if (vectors1.Exists(x => x.UserId == vector1.UserId))
+                {
+                    var item = vectors1.Single(x => x.UserId == vector1.UserId);
+                    vectors1[vectors1.IndexOf(item)].SumTimes(vector1);
+                }
+                else
+                {
+                    vectors1.Add(vector1);
+                }
+            }
+            return vectors1;
+        }
+
+        public List<Vector2> GetListOfVectors2()
+        {
+            var vectors2 = new List<Vector2>();
+            var list = GetDataFromDatabase();
+            foreach (var row in list)
+            {
+                var clicks = Keystroke.ChangeStringToClicksStatistics(row.input1);
+                var vector2 = Keystroke.CreateVector2(clicks, Int32.Parse(row.user_id.ToString()));
+                if (vectors2.Exists(x => x.UserId == vector2.UserId))
+                {
+                    var item = vectors2.Single(x => x.UserId == vector2.UserId);
+                    vectors2[vectors2.IndexOf(item)].Sum(vector2);
+                }
+                else
+                {
+                    vectors2.Add(vector2);
+                }
+            }
+            return vectors2;
+        }
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            DebugFolder.SaveToCsv(GetListOfVector1());
+            MessageBox.Show(GetListOfVector1().Count.ToString());
+        }
+
+        private void MenuItemVector2_OnClick(object sender, RoutedEventArgs e)
+        {
+            DebugFolder.SaveToCsv(GetListOfVectors2());
+            MessageBox.Show(GetListOfVectors2().Count.ToString());
+        }
+
+
+        private void MenuItemIdentyfication_OnClick(object sender, RoutedEventArgs e)
+        {
+            var listOfDistance = new Dictionary<int, double>();
+            var identityWindow = new IdentificationWindow();
+            identityWindow.ShowDialog();
+            var clicks = Keystroke.ChangeStringToClicksStatistics(identityWindow.Text);
+            var myVector1 = Keystroke.CreateVector1(clicks, 1000);
+            if (listOfVectors1 == null)
+            {
+                listOfVectors1 = GetListOfVector1();
+            }
+            foreach (var item in listOfVectors1)
+            {
+                listOfDistance.Add(item.UserId, Keystroke.CountDistancesVector1(item, myVector1));
+            }
+            var closestDisancesVector1 = listOfDistance.OrderBy(x => x.Value).Take(3).ToList();
+            MessageBox.Show(closestDisancesVector1[0].ToString() + " " +
+                            closestDisancesVector1[1].ToString() + " " +
+                            closestDisancesVector1[2].ToString());
+        }
+
+        private void MenuItemIdentyficationVektor2_OnClick(object sender, RoutedEventArgs e)
+        {
+            var listOfDistance = new Dictionary<int, double>();
+            var identityWindow = new IdentificationWindow();
+            identityWindow.ShowDialog();
+            var clicks = Keystroke.ChangeStringToClicksStatistics(identityWindow.Text);
+            var myVector2 = Keystroke.CreateVector2(clicks, 1000);
+            if (listOfVectors2 == null)
+            {
+                listOfVectors2 = GetListOfVectors2();
+            }
+
+            foreach (var item in listOfVectors2)
+
+            {
+                listOfDistance.Add(item.UserId, Keystroke.CountDistancesVector2(item, myVector2));
+            }
+            var closestDisancesVector1 = listOfDistance.OrderBy(x => x.Value).Take(3).ToList();
+            MessageBox.Show(closestDisancesVector1[0].ToString() + " " +
+                            closestDisancesVector1[1].ToString() + " " +
+                            closestDisancesVector1[2].ToString());
+        }
+
+        private void MenuItemIdentityUser_OnClick(object sender, RoutedEventArgs e)
+        {
+            var identityUser = new IdentityUserWindow();
+            identityUser.ShowDialog();
+            var texts = identityUser.Texts;
+            foreach (var x in texts)
+            {
+                MessageBox.Show(x);
+            }
         }
     }
 }

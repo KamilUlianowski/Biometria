@@ -22,6 +22,7 @@
             <Menu>
                 <MenuItem Header="File" FontSize="18" >
                     <MenuItem Header="Open" Click="OpenFile"></MenuItem>
+                    <MenuItem Header="OpenZip" Click="OpenZip"></MenuItem>
                     <MenuItem Header="Save" Click="SaveFile"></MenuItem>
                 </MenuItem>
             </Menu>
@@ -67,6 +68,19 @@
                     <MenuItem Header="Szkieletowanie" Click="Thinning_Click"></MenuItem>
                     <MenuItem Header="Rozgałęzienia" Click="Branching_Click"></MenuItem>
                     <MenuItem Header="Zakończenia" Click="RidgeEnd_Click"></MenuItem>
+                    <MenuItem Header="Zakończenia z filtrem" Click="Filter_Click"></MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <Menu >
+                <MenuItem  Header="Zajęcia6" FontSize="18">
+                    <MenuItem Header="hehe" Click="MenuItem_OnClick"></MenuItem>
+                    <MenuItem Name="MenuItemVector2" Header="Wektor 2" Click="MenuItemVector2_OnClick"></MenuItem>
+                    <MenuItem Name="MenuItemIdentyfication" Header="Identyfikacja Wektor1" Click="MenuItemIdentyfication_OnClick"></MenuItem>
+                    <MenuItem Name="MenuItemIdentyficationVektor2" Header="Identyfikacja Wektor2" 
+                              Click="MenuItemIdentyficationVektor2_OnClick"></MenuItem>
+                    <MenuItem Name="MenuItemIdentityUser" Header="Identifikacja Usera"
+                              Click="MenuItemIdentityUser_OnClick"></MenuItem>
                 </MenuItem>
             </Menu>
 

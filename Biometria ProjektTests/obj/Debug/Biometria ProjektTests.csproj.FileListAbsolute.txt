@@ -17,8 +17,10 @@ C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\WPFToolkit.dll
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\Biometria Projekt.pdb
-C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
-C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\WPFToolkit.pdb
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.csprojResolveAssemblyReference.cache
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.dll
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\obj\Debug\Biometria ProjektTests.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\Ionic.Zip.dll
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\Ionic.Zip.xml
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.pdb
+C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria ProjektTests\bin\Debug\WPFToolkit.pdb

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biometria Projekt", "Biometria Projekt\Biometria Projekt.csproj", "{AE1BA8CE-FCCB-499E-AD82-5C5DBB5AB65B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biometria ProjektTests", "Biometria ProjektTests\Biometria ProjektTests.csproj", "{9C9685F3-FFEC-4980-82A7-A874F852B071}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{AE1BA8CE-FCCB-499E-AD82-5C5DBB5AB65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE1BA8CE-FCCB-499E-AD82-5C5DBB5AB65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE1BA8CE-FCCB-499E-AD82-5C5DBB5AB65B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C9685F3-FFEC-4980-82A7-A874F852B071}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C9685F3-FFEC-4980-82A7-A874F852B071}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C9685F3-FFEC-4980-82A7-A874F852B071}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C9685F3-FFEC-4980-82A7-A874F852B071}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

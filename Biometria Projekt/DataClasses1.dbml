@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Keystroke" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\ProjectsV13;Initial Catalog=Keystroke;Integrated Security=True" SettingsObjectName="Biometria_Projekt.Properties.Settings" SettingsPropertyName="KeystrokeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Table2" Member="Table2s">
+    <Type Name="Table2">
+      <Column Name="time" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="input0" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="input1" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="inputMouse" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="browser" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+</Database>

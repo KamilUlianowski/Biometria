@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kamil\Desktop\Studia\Biometria\biometria-master\Biometria Projekt\App.xaml
-8266533639
+10-175365249
 
-28-2047367467
-161441890794
-Windows\FilterMaskWindow.xaml;MainWindow.xaml;Windows\ChartHistogramWindow.xaml;Windows\HistogramWindow.xaml;Windows\MaskWindow.xaml;Windows\PixelPropertiesWindow.xaml;Windows\ViewPixelWindow.xaml;Windows\ZoomImageWindow.xaml;
+37669980407
+19682239665
+Windows\FilterMaskWindow.xaml;MainWindow.xaml;Windows\ChartHistogramWindow.xaml;Windows\HistogramWindow.xaml;Windows\IdentificationWindow.xaml;Windows\IdentityUserWindow.xaml;Windows\MaskWindow.xaml;Windows\PixelPropertiesWindow.xaml;Windows\ViewPixelWindow.xaml;Windows\ZoomImageWindow.xaml;
 
-True
+False
 
